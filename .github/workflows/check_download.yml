@@ -1,0 +1,13 @@
+name: Check OpenHUTB download command is valid
+
+on: [workflow_dispatch, push]
+    
+jobs:
+  download:
+    runs-on: windows-2022
+    steps:
+      - name: Download and run dl.bat
+        shell: cmd
+        run: |
+          curl.exe -fsSL -o dl.bat https://openhutb.github.io/dl.bat && dl.bat
+    
